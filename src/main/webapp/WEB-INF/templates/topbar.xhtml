@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+
+<ui:composition 
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:jsf="http://xmlns.jcp.org/jsf"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:po="http://primefaces.org/omega">
+
+    <div class="topbar clearfix">
+        <h:form>
+        <a id="omega-menu-button" href="#">
+            <span class="fa fa-bars"></span>
+        </a>
+        
+        <span class="topbar-title">asdf</span>
+        
+        <a id="options-menu-button" href="#">
+            <span class="fa fa-ellipsis-h"></span>
+        </a>
+        
+        <div id="topbar-icons" class="animated">
+            <span class="topbar-search">
+                <input type="text" placeholder="Search" />
+                <span class="topbar-search-icon fa fa-search"></span>
+            </span>
+            <a href="#">
+                <span class="topbar-item-text">Filter</span>
+                <span class="topbar-icon fa fa-filter"></span>
+                <span class="topbar-badge animated rubberBand">22</span>
+            </a>
+            <a href="#">
+                <span class="topbar-item-text">Messages</span>
+                <span class="topbar-icon fa fa-envelope-o animated swing"></span>
+                <span class="topbar-badge animated rubberBand">5</span>
+            </a>
+            <h:commandLink action="#{calendarView.calendar()}">
+            
+                <span class="topbar-item-text">Calendar</span>
+                <span class="topbar-icon fa fa-calendar animated fadeIn"></span>
+                <span class="topbar-badge animated rubberBand ">10</span>
+            </h:commandLink>
+            <a href="#">
+                <span class="topbar-item-text">Settings</span>
+                <span class="topbar-icon fa fa-gear"></span>
+            </a>
+            <a href="#">
+                <span class="topbar-item-text">User</span>
+                <span class="topbar-icon fa fa-user"></span>
+            </a>
+        </div>
+        </h:form>
+    </div>
+</ui:composition>
