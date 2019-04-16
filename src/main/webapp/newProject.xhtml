@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./WEB-INF/templates/default.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui">
+
+    <ui:define name="content">
+        <h:form id="projectForm" enctype="multipart/form-data">
+            <div class="card">
+                <h:panelGrid columns="3" id="newProject">
+                    <p:outputLabel for="p_name" value="Name"/>
+                    <p:inputText id="p_name" value="#{projectDetailView.project.name}"/>
+                    <p:message for="p_name"/>
+                    <p:outputLabel value="Beschreibung" for="p_desc"/>
+                    <p:inputText id="p_desc" value="#{projectDetailView.project.description}"/>
+                    <p:message for="p_desc"/>
+                    <p:outputLabel value="Modell" for="p_modell"/>
+                    <p:fileUpload id="p_modell" value="#{projectDetailView.upload}" auto="true" mode="simple" skinSimple="true" />
+                    <p:message for="p_modell"/>
+                </h:panelGrid>
+                <h:panelGrid columns="2">
+                    <p:commandButton id="summit" value="save" action="#{projectDetailView.update()}" ajax="false"/>
+                    <p:button id="cancel" value="cancel" outcome="home"/>
+                </h:panelGrid>
+            </div>
+        </h:form>
+
+    </ui:define>
+
+</ui:composition>
