@@ -1,4 +1,4 @@
-package com.devtty.vmo.modek;
+package com.devtty.vmo.model;
 
 import java.io.Serializable;
 import java.util.UUID;
