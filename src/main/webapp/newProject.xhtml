@@ -4,21 +4,38 @@
 <ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
                 template="./WEB-INF/templates/default.xhtml"
                 xmlns:h="http://xmlns.jcp.org/jsf/html"
-                xmlns:p="http://primefaces.org/ui">
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:define name="content">
         <h:form id="projectForm" enctype="multipart/form-data">
             <div class="card">
-                <h:panelGrid columns="3" id="newProject">
+                <p:carousel headerText="Version" value="#{projectDetailView.selectableModells}" var="v_modell" >
+                    <p:panelGrid>
+                        <f:facet name="header">
+                            Test
+                        </f:facet>
+                        <h:outputText value="#{v_modell.id}" />
+                        
+                        <p:commandLink value="Add NE" onclick="PF('newModellDlg').show();" rendered="#{empty v_modell.xml}"/>
+                    </p:panelGrid>
+                </p:carousel>
+                
+                <p:dialog header="Add Modell" widgetVar="newModellDlg" height="100" modal="true">
+                    <p:outputLabel value="Modell" for="p_modell"/>
+                    <p:fileUpload id="p_modell" value="#{projectDetailView.upload}" auto="true" mode="simple" skinSimple="true" />
+                    <p:message for="p_modell"/>
+                    <p:commandButton id="sbmModell" value="save" action="#{projectDetailView.update()}" ajax="false"/>
+                </p:dialog>
+                
+                <h:panelGrid columns="3" id="newProject" >
+                    
                     <p:outputLabel for="p_name" value="Name"/>
                     <p:inputText id="p_name" value="#{projectDetailView.project.name}"/>
                     <p:message for="p_name"/>
                     <p:outputLabel value="Beschreibung" for="p_desc"/>
                     <p:inputText id="p_desc" value="#{projectDetailView.project.description}"/>
                     <p:message for="p_desc"/>
-                    <p:outputLabel value="Modell" for="p_modell"/>
-                    <p:fileUpload id="p_modell" value="#{projectDetailView.upload}" auto="true" mode="simple" skinSimple="true" />
-                    <p:message for="p_modell"/>
                 </h:panelGrid>
                 <h:panelGrid columns="2">
                     <p:commandButton id="summit" value="save" action="#{projectDetailView.update()}" ajax="false"/>
