@@ -12,7 +12,7 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <version.deltaspike>1.9.0</version.deltaspike>
+        <version.deltaspike>1.9.4</version.deltaspike>
         <version.primefaces>6.2</version.primefaces>
     </properties>
     
